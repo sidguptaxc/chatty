@@ -1,5 +1,5 @@
 import Logger from 'bunyan';
-import { config } from './config';
+import { config } from '@root/config';
 import mongoose from "mongoose";
 
 

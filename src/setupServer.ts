@@ -1,4 +1,4 @@
-import { config } from './config';
+import { config } from '@root/config';
 import { Application, json ,urlencoded, Response, Request, NextFunction } from 'express';
 
 import http from 'http';
@@ -12,8 +12,8 @@ import 'express-async-errors';
 import { Server } from 'socket.io';
 import { createClient } from 'redis';
 import { createAdapter } from '@socket.io/redis-adapter';
-import Routes from './route';
-import { CustomError, IErrorResponse } from './shared/globals/helpers/error-handler';
+import Routes from '@root/route';
+import { CustomError, IErrorResponse } from '@global/helpers/error-handler';
 import Logger from 'bunyan';
 
 const log: Logger = config.createLogger('server');
@@ -90,7 +90,7 @@ export class ChattyServer {
         const server: Server = new Server(httpServer, {
             cors: {
                 origin: config.CLIENT_URL,
-                methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']   
+                methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
             }
         });
 
